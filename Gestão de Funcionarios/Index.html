@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Gestão de Funcionários - DevStartup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen text-slate-800">
+  <div class="max-w-6xl mx-auto p-6">
+    <header class="flex items-center justify-between mb-6">
+      <h1 class="text-2xl font-extrabold">
+        Sistema de Gestão de Funcionários <span class="text-indigo-600">DevStartup</span>
+      </h1>
+      <div class="text-sm text-slate-500">HTML · JavaScript · Tailwind</div>
+    </header>
+
+    <main class="grid grid-cols-12 gap-6">
+      <section class="col-span-12 lg:col-span-4">
+        <div class="p-4 rounded-2xl shadow-md card glass">
+          <h2 class="text-lg font-semibold mb-3">Cadastrar / Editar Funcionário</h2>
+          <form id="formFuncionario" class="space-y-3">
+            <input type="hidden" id="funcId" />
+            <div>
+              <label class="block text-sm font-medium">Nome</label>
+              <input id="nome" type="text" required class="mt-1 w-full rounded-md border px-3 py-2" placeholder="Ex: Maria Silva">
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Idade</label>
+              <input id="idade" type="number" min="16" required class="mt-1 w-full rounded-md border px-3 py-2" placeholder="Ex: 28">
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Cargo</label>
+              <input id="cargo" type="text" required class="mt-1 w-full rounded-md border px-3 py-2" placeholder="Ex: Desenvolvedor Frontend">
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Salário (R$)</label>
+              <input id="salario" type="number" min="0" step="0.01" required class="mt-1 w-full rounded-md border px-3 py-2" placeholder="Ex: 5500.00">
+            </div>
+
+            <div class="flex gap-2">
+              <button id="btnCadastrar" type="submit" class="flex-1 py-2 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-500">Cadastrar</button>
+              <button id="btnLimpar" type="button" class="py-2 px-4 rounded-lg border border-slate-200">Limpar</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="mt-4 p-4 rounded-2xl shadow-md card glass">
+          <h3 class="font-semibold mb-2">Relatórios Rápidos</h3>
+          <div class="space-y-2 text-sm">
+            <button id="relAlta" class="w-full py-2 rounded-md border">Salários &gt; R$ 5000</button>
+            <button id="relMedia" class="w-full py-2 rounded-md border">Média Salarial</button>
+            <button id="relCargos" class="w-full py-2 rounded-md border">Cargos Únicos</button>
+            <button id="relMaius" class="w-full py-2 rounded-md border">Nomes em MAIÚSCULO</button>
+          </div>
+          <div id="relOutput" class="mt-3 text-sm text-slate-700"></div>
+        </div>
+      </section>
+
+      <section class="col-span-12 lg:col-span-8">
+        <div class="p-4 rounded-2xl shadow-md card glass overflow-auto">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-lg font-semibold">Lista de Funcionários</h2>
+            <div class="flex items-center gap-2">
+              <input id="buscar" type="search" placeholder="Pesquisar por nome ou cargo" class="rounded-md border px-3 py-2" />
+              <button id="btnExport" class="py-2 px-3 rounded-md border">Exportar CSV</button>
+            </div>
+          </div>
+          <table class="w-full table-auto border-collapse">
+            <thead>
+              <tr class="text-left text-sm text-slate-600">
+                <th class="p-2">#</th>
+                <th class="p-2">Nome</th>
+                <th class="p-2">Idade</th>
+                <th class="p-2">Cargo</th>
+                <th class="p-2">Salário (R$)</th>
+                <th class="p-2">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

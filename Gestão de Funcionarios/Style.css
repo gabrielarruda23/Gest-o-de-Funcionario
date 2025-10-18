@@ -1,0 +1,9 @@
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(250, 250, 255, 0.9));
+}
+.glass {
+  backdrop-filter: blur(6px);
+}
+table td, table th {
+  vertical-align: middle;
+}
